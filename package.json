@@ -8,6 +8,10 @@
         "vscode": "^1.50.0"
     },
     "icon": "icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-repository/jump-to-line"
+    },
     "activationEvents": [
         "onCommand:extension.copyInternalCodePathWithLine",
         "onCommand:extension.copyExternalCodePathWithLine",
