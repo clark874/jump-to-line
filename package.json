@@ -1,0 +1,65 @@
+{
+    "name": "jump-to-line",
+    "displayName": "Jump to Line",
+    "description": "A VSCode extension to copy file path with line number and open links from comments",
+    "version": "0.0.3",
+    "publisher": "your-name",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "icon": "icon.png",
+    "activationEvents": [
+        "onCommand:extension.copyInternalCodePathWithLine",
+        "onCommand:extension.copyExternalCodePathWithLine",
+        "onCommand:extension.openLinkFromComment",
+        "onCommand:extension.openSelectedLink"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.copyInternalCodePathWithLine",
+                "title": "Copy Internal Code Path with Line"
+            },
+            {
+                "command": "extension.copyExternalCodePathWithLine",
+                "title": "Copy External Code Path with Line"
+            },
+            {
+                "command": "extension.openLinkFromComment",
+                "title": "Open Link From Comment"
+            },
+            {
+                "command": "extension.openSelectedLink",
+                "title": "Open Selected Link"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "extension.copyInternalCodePathWithLine",
+                    "when": "editorTextFocus"
+                },
+                {
+                    "command": "extension.copyExternalCodePathWithLine",
+                    "when": "editorTextFocus"
+                },
+                {
+                    "command": "extension.openSelectedLink",
+                    "when": "editorHasSelection"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "@types/node": "^12.11.7",
+        "typescript": "^3.7.5",
+        "vscode": "^1.1.37"
+    }
+}
